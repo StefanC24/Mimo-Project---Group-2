@@ -2,9 +2,15 @@ const generate = document.getElementById("generate");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 const paragraph = document.getElementById("quote");
+const author = document.getElementById("author");
 
 function getQuote (){
-    paragraph.innerHTML = "The quote will display here"
+    fetch("http://quotable.io/random")
+        .then(result => result.json())
+        .then(data => {
+            paragraph.innerHTML = data.content
+            author.innerHTML = data.author
+        })
 }
 
 function nextQuote (){
