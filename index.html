@@ -6,10 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <title>Quote Generator</title>
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="reset.css" media="screen" />
+    <link rel="stylesheet" href="style.css" media="screen" />
+    <link rel="stylesheet" href="https://use.typekit.net/ldl4jtj.css">
 </head>
 
 <body>
+    <div class="container">
+
+        <nav>
+            <h3 class="logo" id="logo">Random Quote Generator</h3>
+        </nav>
+
+        <div class="quote-container">
+            <!-- This is the paragraph where JS will generate a quote -->
+            <!-- the ID is for the purposes of JS - for querySelector -->
+            <h1 class="quote" id="quote">"You are never too old to set another goal or to dream a new dream."</h1>
+            <h2 class="author">C.S Lewis</h2>
+        </div>
+
+        <div class="button-container">
+            <button class="previous"><img class="arrow" src="/img/arrow.svg"></button>
+            <button class="generate"><h2 class="generate-label">Generate</h2></button>
+            <button class="next"><img class="arrow"  src="/img/arrow.svg"></button>
+        </div>
+
     <div class="main-container">
         <!-- This is the paragraph where JS will generate a quote -->
         <!-- the ID is for the purposes of JS - for querySelector -->
