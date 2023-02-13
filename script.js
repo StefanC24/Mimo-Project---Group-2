@@ -4,7 +4,7 @@ const previous = document.getElementById("previous");
 const paragraph = document.getElementById("quote");
 const author = document.getElementById("author");
 let list = [];
-let indexOfLastElement = list.length - 1;
+let currentQuoteIndex = 0;
 
 
 function getQuote (){
@@ -13,8 +13,8 @@ function getQuote (){
         .then(data => {
             paragraph.innerHTML = data.content
             author.innerHTML = data.author
-            
             list.push(data)
+            currentQuoteIndex = list.length - 1
             //this will push every generated quote to an array
     
             console.log(list)
@@ -23,7 +23,13 @@ function getQuote (){
 
 
 function nextQuote (){
-    paragraph.innerHTML = "The next quote will display here"
+    if(currentQuoteIndex === list.length - 1){
+        return
+    }
+    currentQuoteIndex++
+        
+    paragraph.innerText = list[currentQuoteIndex].content;
+    author.innerText = list[currentQuoteIndex].author;
 }
 
 function previousQuote (){
@@ -34,14 +40,12 @@ function previousQuote (){
 //if user clicks generate a new quote is generated and displayed
 //if the user reaches the first quote an error message will display
 //if the user reaches the last quote, an error message will be displayed
-
-    const lastElement = list[indexOfLastElement];
-    console.log(list.length)
-    console.log(lastElement.content)
-    paragraph.innerText = lastElement.content;
-    author.innerHTML = lastElement.author;
-
-    
+    if(currentQuoteIndex === 0){
+        return
+    }
+    currentQuoteIndex--
+    paragraph.innerText = list[currentQuoteIndex].content;
+    author.innerText = list[currentQuoteIndex].author;
 }
 
 
