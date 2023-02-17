@@ -71,6 +71,7 @@ nav {
 }
 
 .previous, .next {
+    visibility: hidden;
     background-color: var(--Red);
     color: var(--White);
     border-radius: 50%;
