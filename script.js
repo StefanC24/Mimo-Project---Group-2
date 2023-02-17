@@ -16,20 +16,27 @@ function getQuote (){
             list.push(data)
             currentQuoteIndex = list.length - 1
             //this will push every generated quote to an array
-    
-            console.log(list)
+            if(list.length >= 0){
+                previous.style.visibility = ("visible")
+            }
+            
         })
     }
 
 
 function nextQuote (){
-    if(currentQuoteIndex === list.length - 1){
+    if(currentQuoteIndex === currentQuoteIndex - 1){
         return
     }
     currentQuoteIndex++
         
     paragraph.innerText = list[currentQuoteIndex].content;
     author.innerText = list[currentQuoteIndex].author;
+
+    if(currentQuoteIndex == list.length - 1){
+        next.style.visibility = ("hidden")
+    }
+    previous.style.visibility = ("visible")
 }
 
 function previousQuote (){
@@ -46,9 +53,14 @@ function previousQuote (){
     currentQuoteIndex--
     paragraph.innerText = list[currentQuoteIndex].content;
     author.innerText = list[currentQuoteIndex].author;
+
+    next.style.visibility = ("visible")
+
+    if(currentQuoteIndex < 1){
+        previous.style.visibility = ("hidden")
+    }
+
 }
-
-
 
 generate.onclick = getQuote;
 next.onclick = nextQuote;
