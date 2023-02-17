@@ -19,7 +19,7 @@ function getQuote (){
             if(list.length >= 0){
                 previous.style.visibility = ("visible")
             }
-            
+            next.style.visibility = ("hidden")
         })
     }
 
