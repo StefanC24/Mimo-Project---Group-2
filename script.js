@@ -16,7 +16,7 @@ function getQuote (){
             list.push(data)
             currentQuoteIndex = list.length - 1
             //this will push every generated quote to an array
-            if(list.length >= 0){
+            if(list.length > 1){
                 previous.style.visibility = ("visible")
             }
             next.style.visibility = ("hidden")
