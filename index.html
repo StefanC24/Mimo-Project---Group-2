@@ -20,12 +20,14 @@
             <h3 class="logo" id="logo">Random Quote Generator</h3>
         </nav>
 
-        <div class="quote-container">
+        <div class="quote-container" id="capture">
             <!-- This is the paragraph where JS will generate a quote -->
             <!-- the ID is for the purposes of JS - for querySelector -->
             <h1 class="quote" id="quote">"You are never too old to set another goal or to dream a new dream."</h1>
             <h2 class="author" id="author">C.S Lewis</h2>
         </div>
+
+        <button id="screenshot">Screenshot</button>
 
         <div class="button-container">
             <button class="previous" id="previous"><img class="arrow" src="/img/arrow.svg"></button>
@@ -33,7 +35,9 @@
             <button class="next" id="next"><img class="arrow"  src="/img/arrow.svg"></button>
         </div>
     
+<script src="html2canvas.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 
 </html>

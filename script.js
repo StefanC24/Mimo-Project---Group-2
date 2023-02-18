@@ -1,10 +1,12 @@
 const generate = document.getElementById("generate");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
+const screenshot = document.getElementById("screenshot");
 const paragraph = document.getElementById("quote");
 const author = document.getElementById("author");
 let list = [];
 let currentQuoteIndex = 0;
+
 
 
 function getQuote (){
@@ -61,7 +63,20 @@ function previousQuote (){
     }
 
 }
+function downloadImage (){
+    html2canvas(document.querySelector("#capture")).then(canvas => {
+        // document.body.appendChild(canvas)
+        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        console.log(image);
+        window.location.href = image;
+    });
+}
+
 
 generate.onclick = getQuote;
 next.onclick = nextQuote;
 previous.onclick = previousQuote;
+screenshot.onclick = downloadImage;
+
+
+ 
