@@ -17,6 +17,10 @@ h3 {
     font-size: 16px;
 }
 
+button {
+    cursor:pointer;
+}
+
 .container {
     background-color: var(--White);
     padding: 0px 10px;
@@ -45,12 +49,45 @@ nav {
     max-width:100%;
 }
 
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
 .quote {
     font-weight: 500;
+    margin-bottom: 40px;
 }
 
 .author {
     font-weight: 800;
+}
+
+
+.screenshot-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5%;
+    width: 1500px;
+    height: 1500px;
+    position: absolute;
+    overflow: hidden;
+    right: 100%;
+}
+
+.screenshot-quote {
+    font-size: 100px;
+    line-height: 137px;
+    font-weight: 500;
+    color: var(--Black);
+}
+
+.screenshot-author {
+    font-size:75px;
+    font-weight: 800;
+    color: var(--Black);
 }
 
 .quote-container, .button-container {
@@ -74,7 +111,7 @@ nav {
     margin: auto;
 }
 
-.previous, .next {
+.screenshot, .previous, .next {
     visibility: hidden;
     background-color: var(--Red);
     color: var(--White);
