@@ -23,9 +23,19 @@
         <div class="quote-container">
             <!-- This is the paragraph where JS will generate a quote -->
             <!-- the ID is for the purposes of JS - for querySelector -->
-            <h1 class="quote" id="quote">"You are never too old to set another goal or to dream a new dream."</h1>
-            <h2 class="author" id="author">C.S Lewis</h2>
+            <h1 class="quote" id="quote">Press generate to show a new quote!</h1>
+            <div class="bottom-row">
+                <h2 class="author" id="author"></h2>
+                <button class="screenshot" id="screenshot"><img class="screenshot-icon" src="/img/capture.svg"></button>
+            </div>
         </div>
+
+        <div class="screenshot-container" id="capture">
+            <p class="screenshot-quote" id="screenshotQuote"></h1>
+            <p class="screenshot-author" id="screenshotAuthor"></h2>
+        </div>
+
+        
 
         <div class="button-container">
             <button class="previous" id="previous"><img class="arrow" src="/img/arrow.svg"></button>
@@ -33,7 +43,9 @@
             <button class="next" id="next"><img class="arrow"  src="/img/arrow.svg"></button>
         </div>
     
+<script src="html2canvas.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 
 </html>
