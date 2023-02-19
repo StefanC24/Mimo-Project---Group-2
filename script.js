@@ -74,11 +74,24 @@ function previousQuote (){
     }
 
 }
-function downloadImage (){
-    html2canvas(document.querySelector("#capture")).then(canvas => {
-        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-        window.location.href = image;
+
+function downloadImage() {  
+    html2canvas(document.querySelector('#capture')).then(function(canvas) {
+        saveAs(canvas.toDataURL(), (author.innerHTML + '.png'));
     });
+};
+
+function saveAs(url, filename) {
+    var link = document.createElement('a');
+    if (typeof link.download === 'string') {
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        window.open(url);
+    }
 }
 
 
