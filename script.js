@@ -47,6 +47,7 @@ function nextQuote (){
     if(currentQuoteIndex == list.length - 1){
         next.style.visibility = ("hidden")
     }
+    previous.style.visibility = ("visible");
 }
 
 function previousQuote (){
