@@ -1,10 +1,14 @@
 const generate = document.getElementById("generate");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
+const screenshot = document.getElementById("screenshot");
 const paragraph = document.getElementById("quote");
 const author = document.getElementById("author");
+const screenshotParagraph = document.getElementById("screenshotQuote");
+const screenshotAuthor = document.getElementById("screenshotAuthor");
 let list = [];
 let currentQuoteIndex = 0;
+
 
 
 function getQuote (){
@@ -13,9 +17,14 @@ function getQuote (){
         .then(data => {
             paragraph.innerHTML = data.content
             author.innerHTML = data.author
+            screenshotParagraph.innerHTML = data.content
+            screenshotAuthor.innerHTML = data.author
             list.push(data)
             currentQuoteIndex = list.length - 1
             //this will push every generated quote to an array
+
+            screenshot.style.visibility = ("visible")
+
             if(list.length > 1){
                 previous.style.visibility = ("visible")
             }
@@ -32,11 +41,13 @@ function nextQuote (){
         
     paragraph.innerText = list[currentQuoteIndex].content;
     author.innerText = list[currentQuoteIndex].author;
+    screenshotParagraph.innerText = list[currentQuoteIndex].content;
+    screenshotAuthor.innerText = list[currentQuoteIndex].author;
 
     if(currentQuoteIndex == list.length - 1){
         next.style.visibility = ("hidden")
     }
-    previous.style.visibility = ("visible")
+    previous.style.visibility = ("visible");
 }
 
 function previousQuote (){
@@ -53,6 +64,8 @@ function previousQuote (){
     currentQuoteIndex--
     paragraph.innerText = list[currentQuoteIndex].content;
     author.innerText = list[currentQuoteIndex].author;
+    screenshotParagraph.innerText = list[currentQuoteIndex].content;
+    screenshotAuthor.innerText = list[currentQuoteIndex].author;
 
     next.style.visibility = ("visible")
 
@@ -62,6 +75,29 @@ function previousQuote (){
 
 }
 
+function downloadImage() {  
+    html2canvas(document.querySelector('#capture')).then(function(canvas) {
+        saveAs(canvas.toDataURL(), (author.innerHTML + '.png'));
+    });
+};
+
+function saveAs(url, filename) {
+    var link = document.createElement('a');
+    if (typeof link.download === 'string') {
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        window.open(url);
+    }
+}
+
 generate.onclick = getQuote;
 next.onclick = nextQuote;
 previous.onclick = previousQuote;
+screenshot.onclick = downloadImage;
+
+
+ 
