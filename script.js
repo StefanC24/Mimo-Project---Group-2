@@ -94,7 +94,6 @@ function saveAs(url, filename) {
     }
 }
 
-
 generate.onclick = getQuote;
 next.onclick = nextQuote;
 previous.onclick = previousQuote;

@@ -68,13 +68,14 @@ nav {
 .screenshot-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 75px;
-    width: 1500px;
-    height: 1500px;
+    width: 2000px;
+    height: 2000px;
     position: absolute;
     overflow: hidden;
     right: 100%;
+    background-color: var(--White);
 }
 
 .screenshot-quote {
