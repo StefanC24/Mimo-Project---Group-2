@@ -144,6 +144,29 @@ i:hover {
     height: 45px;
     max-width: 45px;
     max-height: 45px;
+    transition-property: transform, color 2s;
+    transition-duration: 0.3s;
+
+}
+
+.previous:hover, .screenshot:hover, .next:hover {
+    background-color: #ff0000;
+    transform: scale(105%)
+}
+
+.previous:active, .screenshot:active, .next:active  {
+    background-color: #ec3f62;
+    transition: none;
+}
+
+.generate:hover {
+    background-color: #ff0000;
+    transform: scale(101%)
+}
+
+.generate:active {
+    background-color: #ec3f62;
+    transition: none;
 }
 
 .generate {
@@ -155,6 +178,9 @@ i:hover {
     font-family: normalidad-wide, sans-serif;
     font-size: 24px;    
     line-height: 45px;
+    /* transition: transform 0.3s; */
+    transition-property: transform, color 2s;
+    transition-duration: 0.3s;
 }
 
 .generate-label {
@@ -166,9 +192,9 @@ i:hover {
     transform: translate(0px, 5%);
 }
 
-.next {
+/* .next {
     transform: rotate(0.5turn);
-}
+} */
 
 @media screen and (min-width: 800px) {
 
