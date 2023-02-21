@@ -17,9 +17,11 @@ body {
 
 h1 {
     font-size: 32px;
+    color: var(--Primary);
 }
 h2 {
     font-size: 24px;
+    color: var(--Primary);
 }
 h3 {
     font-size: 16px;
@@ -157,6 +159,7 @@ i:hover {
 
 .generate-label {
     transform: translate(0px, -5%);
+    color: #FFF;
 }
 
 .arrow  {
