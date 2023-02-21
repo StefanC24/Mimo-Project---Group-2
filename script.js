@@ -8,6 +8,7 @@ const screenshotParagraph = document.getElementById("screenshotQuote");
 const screenshotAuthor = document.getElementById("screenshotAuthor");
 let list = [];
 let currentQuoteIndex = 0;
+let isNightModeOn = false;
 
 
 
@@ -100,4 +101,26 @@ previous.onclick = previousQuote;
 screenshot.onclick = downloadImage;
 
 
- 
+         //   Dark Mode stuff
+function nightMode() {
+if (isNightModeOn === false) {
+    // document.documentElement.style.setProperty('transition', '2s');
+    document.documentElement.style.setProperty('--Primary', '#FFF');
+    document.documentElement.style.setProperty('--Secondary', '#000');
+    //   document.querySelector("body").style.background = "var(--Black)";
+    isNightModeOn = true
+} else {
+    //   document.querySelector("body").style.background = "var(--White)";
+    document.documentElement.style.setProperty('--Primary', '#000');
+    document.documentElement.style.setProperty('--Secondary', '#FFF');
+    isNightModeOn = false
+}
+}
+
+const toggle = document.getElementById('toggleDark');
+const body = document.querySelector('body');
+
+toggle.addEventListener('click', function(){
+    this.classList.toggle('bi-moon-fill');
+    
+})
