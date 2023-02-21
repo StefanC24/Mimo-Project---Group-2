@@ -72,6 +72,18 @@ nav {
     font-weight: 800;
 }
 
+/* Boostrap imported icon element for Dark Mode */
+i {
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+    left: 30%;
+    color: var(--Primary);
+    transition: transform 1.5s;
+}
+i:hover {
+    transform: rotate(360deg);
+}
 
 .screenshot-container {
     display: flex;
