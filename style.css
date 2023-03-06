@@ -5,7 +5,13 @@
 
 }
 
-body, h1, h2, h3, .container, .quote-container, .button-container {
+body,
+h1,
+h2,
+h3,
+.container,
+.quote-container,
+.button-container {
     transition: 1s
 }
 
@@ -13,14 +19,17 @@ body {
     background-color: var(--Secondary);
 }
 
+/* Great use of standardizarion for each heading used */
 h1 {
     font-size: 32px;
     color: var(--Primary);
 }
+
 h2 {
     font-size: 24px;
     color: var(--Primary);
 }
+
 h3 {
     font-size: 16px;
 }
@@ -54,7 +63,7 @@ nav {
     justify-content: space-between;
     min-height: 50vh;
     padding: 20px 10px;
-    max-width:100%;
+    max-width: 100%;
 }
 
 .bottom-row {
@@ -81,6 +90,7 @@ i {
     color: var(--Primary);
     transition: transform 1.5s;
 }
+
 i:hover {
     transform: rotate(360deg);
 }
@@ -111,7 +121,8 @@ i:hover {
     color: var(--Primary);
 }
 
-.quote-container, .button-container {
+.quote-container,
+.button-container {
     border: 1px solid var(--Red);
     border-radius: 20px;
     filter: drop-shadow(0 3px 0 var(--Red));
@@ -132,7 +143,9 @@ i:hover {
     margin: auto;
 }
 
-.screenshot, .previous, .next {
+.screenshot,
+.previous,
+.next {
     visibility: hidden;
     background-color: var(--Red);
     color: var(--Secondary);
@@ -147,12 +160,19 @@ i:hover {
 
 }
 
-.previous:hover, .screenshot:hover, .next:hover, .generate:hover {
+.previous:hover,
+.screenshot:hover,
+.next:hover,
+.generate:hover {
+    /* put all colors into the variables */
     background-color: #ff0000;
     transform: scale(105%)
 }
 
-.previous:active, .screenshot:active, .next:active, .generate:active  {
+.previous:active,
+.screenshot:active,
+.next:active,
+.generate:active {
     background-color: #781010;
     transition: none;
 }
@@ -163,9 +183,11 @@ i:hover {
     border-radius: 45px;
     border: none;
     width: 200px;
+    /* Put the fonts into css variables */
     font-family: normalidad-wide, sans-serif;
-    font-size: 24px;    
+    font-size: 24px;
     line-height: 45px;
+    /* Remove any unused code */
     /* transition: transform 0.3s; */
     transition-property: transform, color 2s;
     transition-duration: 0.3s;
@@ -176,7 +198,7 @@ i:hover {
     color: #FFF;
 }
 
-.arrow  {
+.arrow {
     transform: translate(0px, 5%);
 }
 
@@ -192,5 +214,3 @@ i:hover {
     }
 
 }
-
-
