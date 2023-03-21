@@ -1,3 +1,4 @@
+// Global variables are in the correct spot and are ordered correctly
 const generate = document.getElementById("generate");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
@@ -11,9 +12,11 @@ let currentQuoteIndex = 0;
 let isNightModeOn = false;
 
 
-
 function getQuote (){
     fetch(`https://quotable.io/random/api/${type}`)
+// Good structure here for the API call, there is just the catch statement
+// missing to handle any issues with the API
+
         .then(result => result.json())
         .then(data => {
             paragraph.innerHTML = data.content
@@ -25,40 +28,43 @@ function getQuote (){
 
             screenshot.style.visibility = ("visible")
 
-            if(list.length > 1){
+            if (list.length > 1) {
                 previous.style.visibility = ("visible")
             }
             next.style.visibility = ("hidden")
         })
-    }
+}
 
 
-function nextQuote (){
-    if(currentQuoteIndex === currentQuoteIndex - 1){
+// The next quote and previous code could be reduced to one function
+// it could receive a parameter with 'next' or 'previous'
+// The reason it should be combined as there is a lot of repeated code.
+function nextQuote() {
+    if (currentQuoteIndex === currentQuoteIndex - 1) {
         return
     }
     currentQuoteIndex++
-        
+
     paragraph.innerText = list[currentQuoteIndex].content;
     author.innerText = list[currentQuoteIndex].author;
     screenshotParagraph.innerText = list[currentQuoteIndex].content;
     screenshotAuthor.innerText = list[currentQuoteIndex].author;
 
-    if(currentQuoteIndex == list.length - 1){
+    if (currentQuoteIndex == list.length - 1) {
         next.style.visibility = ("hidden")
     }
     previous.style.visibility = ("visible");
 }
 
-function previousQuote (){
+function previousQuote() {
 
-//once pressed the button the previous quote will be displayed
-//create a currentIndex variable which will increment or decrement according to the pressed button
-//once the generate button is clicked while in the middle of the array, the last item will be displayed
-//if user clicks generate a new quote is generated and displayed
-//if the user reaches the first quote an error message will display
-//if the user reaches the last quote, an error message will be displayed
-    if(currentQuoteIndex === 0){
+    //once pressed the button the previous quote will be displayed
+    //create a currentIndex variable which will increment or decrement according to the pressed button
+    //once the generate button is clicked while in the middle of the array, the last item will be displayed
+    //if user clicks generate a new quote is generated and displayed
+    //if the user reaches the first quote an error message will display
+    //if the user reaches the last quote, an error message will be displayed
+    if (currentQuoteIndex === 0) {
         return
     }
     currentQuoteIndex--
@@ -69,14 +75,16 @@ function previousQuote (){
 
     next.style.visibility = ("visible")
 
-    if(currentQuoteIndex < 1){
+    if (currentQuoteIndex < 1) {
         previous.style.visibility = ("hidden")
     }
 
 }
 
-function downloadImage() {  
-    html2canvas(document.querySelector('#capture')).then(function(canvas) {
+// Some comments could be added for the download process as potentially certain
+// parts could be confusing for some of the team
+function downloadImage() {
+    html2canvas(document.querySelector('#capture')).then(function (canvas) {
         saveAs(canvas.toDataURL(), (author.innerHTML + '.png'));
     });
 };
@@ -100,26 +108,27 @@ previous.onclick = previousQuote;
 screenshot.onclick = downloadImage;
 
 
-         //   Dark Mode stuff
+//   Dark Mode stuff
 function nightMode() {
-if (isNightModeOn === false) {
-    // document.documentElement.style.setProperty('transition', '2s');
-    document.documentElement.style.setProperty('--Primary', '#FFF');
-    document.documentElement.style.setProperty('--Secondary', '#000');
-    //   document.querySelector("body").style.background = "var(--Black)";
-    isNightModeOn = true
-} else {
-    //   document.querySelector("body").style.background = "var(--White)";
-    document.documentElement.style.setProperty('--Primary', '#000');
-    document.documentElement.style.setProperty('--Secondary', '#FFF');
-    isNightModeOn = false
-}
+    // Clear and easy to read but remove any unused CSS to reduce clutter
+    if (isNightModeOn === false) {
+        // document.documentElement.style.setProperty('transition', '2s');
+        document.documentElement.style.setProperty('--Primary', '#FFF');
+        document.documentElement.style.setProperty('--Secondary', '#000');
+        //   document.querySelector("body").style.background = "var(--Black)";
+        isNightModeOn = true
+    } else {
+        //   document.querySelector("body").style.background = "var(--White)";
+        document.documentElement.style.setProperty('--Primary', '#000');
+        document.documentElement.style.setProperty('--Secondary', '#FFF');
+        isNightModeOn = false
+    }
 }
 
 const toggle = document.getElementById('toggleDark');
 const body = document.querySelector('body');
 
-toggle.addEventListener('click', function(){
+toggle.addEventListener('click', function () {
     this.classList.toggle('bi-moon-fill');
-    
+
 })

@@ -1,0 +1,7 @@
+Overall Feedback:
+
+1. The css for the most part is well organised and using the best practices.
+2. HTML is using the correct tags and does not have any unnecessary code.
+3. The JavaScript mostly is well organised but has some areas for improvement
+as noted in the JS file.
+4. Git commit messages could be clearer as to what changed from version to version.
