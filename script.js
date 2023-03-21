@@ -13,7 +13,7 @@ let isNightModeOn = false;
 
 
 function getQuote (){
-    fetch("http://quotable.io/random")
+    fetch(`https://quotable.io/random/api/${type}`)
         .then(result => result.json())
         .then(data => {
             paragraph.innerHTML = data.content
@@ -22,7 +22,6 @@ function getQuote (){
             screenshotAuthor.innerHTML = data.author
             list.push(data)
             currentQuoteIndex = list.length - 1
-            //this will push every generated quote to an array
 
             screenshot.style.visibility = ("visible")
 
